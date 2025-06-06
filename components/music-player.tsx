@@ -22,6 +22,8 @@ import { useMusicPlayerStore } from "@/store/use-music";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { LyricsDisplay } from "./lyrics";
+import { FaSpotify } from "react-icons/fa6";
+import Link from "next/link";
 
 export default function MusicPlayer() {
     const audioRef = useRef<HTMLAudioElement>(null);
@@ -285,7 +287,15 @@ export default function MusicPlayer() {
             </div>
 
             <div className="mt-6">
-                <h3 className="text-lg font-semibold mb-2">Playlist</h3>
+                <div className="flex items-center justify-between">
+
+                    <h3 className="text-lg font-bold mb-2 font-courier-prime">808s by Chinmayyy </h3>
+                    <Link href="https://open.spotify.com/user/st3m6mykt196y2znl2zgp15xr?si=15f4f39e0a8041f2" target="_blank" rel="noopener noreferrer" className="cursor-pointer">
+                        <Button variant="ghost" size="icon" className="cursor-pointer">
+                            <FaSpotify />
+                        </Button>
+                    </Link>
+                </div>
                 <ul className="space-y-2">
                     {playlist.map((track) => (
                         <motion.li
