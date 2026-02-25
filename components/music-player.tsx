@@ -15,10 +15,7 @@ import {
     Shuffle,
     Music,
     X,
-    Sun,
-    Moon,
 } from "lucide-react";
-import { useTheme } from "next-themes";
 import { useMusicPlayerStore } from "@/store/use-music";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -28,7 +25,6 @@ import Link from "next/link";
 
 export default function MusicPlayer() {
     const audioRef = useRef<HTMLAudioElement>(null);
-    const { theme, setTheme } = useTheme();
     const {
         currentTrack,
         isPlaying,
@@ -48,10 +44,6 @@ export default function MusicPlayer() {
     const [progress, setProgress] = useState(0);
     const [currentTime, setCurrentTime] = useState(0);
     const [showLyrics, setShowLyrics] = useState(false);
-
-    const toggleTheme = () => {
-        setTheme(theme === "dark" ? "light" : "dark");
-    };
 
     const handleTimeUpdate = () => {
         if (audioRef.current) {
@@ -173,14 +165,6 @@ export default function MusicPlayer() {
 
     return (
         <div className="w-full mx-auto p-5 bg-background border border-border/50 rounded-xl shadow-lg dark:shadow-2xl">
-            <div className="flex justify-end mb-3">
-                <Button variant="outline" size="icon" onClick={toggleTheme}>
-                    <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-                    <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
-                    <span className="sr-only">Toggle theme</span>
-                </Button>
-            </div>
-
             <div className="h-[25rem] overflow-hidden relative">
             <AnimatePresence mode="wait">
                 {showLyrics && currentTrack?.hasLyrics ? (

@@ -36,15 +36,15 @@ export function LyricsDisplay({ lyrics, currentTime }: LyricsDisplayProps) {
   }, [currentTime, lyrics, activeLyricIndex]);
 
   return (
-    <div className="h-72 overflow-hidden w-full relative">
-      <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
+    <div className="h-48 overflow-hidden w-full relative">
+      <div className="absolute top-0 left-0 right-0 h-10 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
 
       <AnimatePresence mode="popLayout">
         {lyrics.map((lyric, index) => {
           const isActive = index === activeLyricIndex;
           const distance = Math.abs(index - activeLyricIndex);
-          const isVisible = distance <= 4;
+          const isVisible = distance <= 3;
 
           if (!isVisible) return null;
 
