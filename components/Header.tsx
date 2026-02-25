@@ -16,26 +16,20 @@ export default function Header() {
 
     if (!mounted) {
         return (
-            <header className="mb-6 flex justify-end">
-                <div
-                    className={
-                        cn(
-                            buttonVariants({
-                                variant: "ghost",
-                                size: "icon",
-                            }),
-                            "text-blue-500"
-                        )
-                    }
-                >
-                    <div className="w-5 h-5" />
-                </div>
+            <header className="mb-4 flex items-center justify-between">
+                <span className="text-lg font-bold font-courier-prime tracking-wide text-orange-500/80">
+                    808s
+                </span>
+                <div className="w-5 h-5" />
             </header>
         );
     }
 
     return (
-        <header className="mb-6 flex justify-end">
+        <header className="mb-4 flex items-center justify-between">
+            <span className="text-lg font-bold font-courier-prime tracking-wide text-orange-500/80">
+                808s
+            </span>
             <Link
                 href={"https://github.com/chinmaynoob"}
                 target="_blank"
@@ -45,7 +39,6 @@ export default function Header() {
                             variant: "ghost",
                             size: "icon",
                         }),
-                        "text-blue-500"
                     )
                 }
             >
